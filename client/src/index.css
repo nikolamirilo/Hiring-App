@@ -1,0 +1,33 @@
+body {
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+}
+
+#native-language-combobox #first-option {
+  color: gray;
+}
+#technology-combobox #first-option {
+  color: gray;
+}
+select {
+  color: gray;
+  cursor: pointer;
+}
+#native-language-combobox,
+#technology-combobox {
+  width: 95%;
+  height: 7vh;
+  border-color: #a9a9a9;
+  font-size: 1rem;
+  color: black;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+
+select:hover {
+  outline: 1px solid black;
+}
+select:focus {
+  outline: 1px solid #3f50b5;
+  border: 1px solid #3f50b5;
+}
