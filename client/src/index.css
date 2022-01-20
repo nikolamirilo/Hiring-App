@@ -9,12 +9,16 @@ body {
 #technology-combobox #first-option {
   color: gray;
 }
-select {
+select,
+#start-date,
+#end-date {
   color: gray;
   cursor: pointer;
 }
 #native-language-combobox,
-#technology-combobox {
+#technology-combobox,
+#start-date,
+#end-date {
   width: 95%;
   height: 7vh;
   border-color: #a9a9a9;
@@ -22,12 +26,17 @@ select {
   color: black;
   padding: 0.5rem;
   border-radius: 0.2rem;
+  user-select: none;
 }
 
-select:hover {
+select:hover,
+#start-date,
+#end-date {
   outline: 1px solid black;
 }
-select:focus {
+select:focus,
+#start-date,
+#end-date {
   outline: 1px solid #3f50b5;
   border: 1px solid #3f50b5;
 }

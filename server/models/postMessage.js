@@ -9,9 +9,13 @@ const postSchema = mongoose.Schema({
   pricePerHour: String,
   technology: String,
   description: String,
-  yearsOfExperience: String,
+  yearsOfExperience: Number,
   nativeLanguage: String,
   linkedInUrl: String,
+  //process of hiring
+  hireStatus: Boolean, // true if hired, false if not
+  startDate: Date,
+  endDate: Date,
 });
 
 var PostMessage = mongoose.model("PostMessage", postSchema);

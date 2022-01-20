@@ -16,7 +16,7 @@ const Form = ({ currentId, setCurrentId }) => {
     pricePerHour: "",
     technology: "",
     description: "",
-    yearsOfExperience: "",
+    yearsOfExperience: 0,
     nativeLanguage: "",
     linkedInUrl: "",
   });
@@ -41,13 +41,11 @@ const Form = ({ currentId, setCurrentId }) => {
       pricePerHour: "",
       technology: "",
       description: "",
-      yearsOfExperience: "",
+      yearsOfExperience: 0,
       nativeLanguage: "",
       linkedInUrl: "",
     });
   };
-
-  const techOptions = ["JavaScript", "Java", "Python", "C++", "C#", "PHP", "Ruby"];
 
   const handleSubmit = async (e) => {
     e.preventDefault();

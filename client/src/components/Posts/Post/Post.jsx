@@ -4,6 +4,8 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import BsLinkedin from "@material-ui/icons/LinkedIn";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { useDispatch } from "react-redux";
+import { FaHireAHelper } from "react-icons/fa";
+import { Dialog, DialogActions, DialogContent } from "@material-ui/core/";
 
 import { deletePost } from "../../../actions/posts";
 import useStyles from "./styles";
@@ -11,18 +13,15 @@ import useStyles from "./styles";
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
 
-  // name,
-  // email,
-  // phoneNumber,
-  // Location,
-  // profilePicture,
-  // pricePerHour,
-  // Technology,
-  // Description,
-  // yearsOfExperience,
-  // nativeLanguage,
-  // linkedInUrl,
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Card className={classes.card}>
@@ -41,7 +40,14 @@ const Post = ({ post, setCurrentId }) => {
       </div>
 
       <div className={classes.overlay2}>
-        <Button style={{ color: "white" }} size="small" onClick={() => setCurrentId(post._id)}>
+        <Button
+          style={{ color: "white" }}
+          size="small"
+          onClick={() => {
+            setCurrentId(post._id);
+            window.scrollTo(0, 0);
+          }}
+        >
           <MoreHorizIcon fontSize="default" />
         </Button>
       </div>
@@ -83,6 +89,38 @@ const Post = ({ post, setCurrentId }) => {
           <BsLinkedin fontSize="medium" />
           Visit
         </Button>
+
+        <div>
+          <Button size="small" color="secondary" onClick={handleClickOpen}>
+            <FaHireAHelper size={24} style={{ marginRight: "2px" }} />
+            IRE
+          </Button>
+          <Dialog open={open} onClose={handleClose}>
+            <DialogContent>
+              <Typography>To hire a developer, please enter start and end date.</Typography>
+              <input
+                id="start-date"
+                style={{ marginTop: "15px" }}
+                type="date"
+                label="Start Date"
+                /* value={postData.email}
+                onChange={(e) => setPostData({ ...postData, email: e.target.value })}*/
+              />
+              <input
+                id="end-date"
+                type="date"
+                label="End Date"
+                /* value={postData.email}
+                onChange={(e) => setPostData({ ...postData, email: e.target.value })}*/
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose}>Hire</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+
         <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}>
           <DeleteIcon fontSize="small" /> Delete
         </Button>
