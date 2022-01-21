@@ -9,16 +9,16 @@ const postSchema = mongoose.Schema({
   pricePerHour: String,
   technology: String,
   description: String,
-  yearsOfExperience: Number,
+  yearsOfExperience: String,
   nativeLanguage: String,
   linkedInUrl: String,
-  // hireStatus: Boolean,
-  // startDate: {
-  //   type: Date,
-  // },
-  // endDate: {
-  //   type: Date,
-  // },
+  hireStatus: Boolean,
+  startDate: {
+    type: Date,
+  },
+  endDate: {
+    type: Date,
+  },
 });
 
 var PostMessage = mongoose.model("PostMessage", postSchema);

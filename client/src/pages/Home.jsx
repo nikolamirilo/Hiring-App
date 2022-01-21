@@ -18,7 +18,7 @@ const Home = () => {
   }, [currentId, dispatch])
 
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className={classes.container}>
       <AppBar className={classes.appBar} position="static" color="inherit">
         <Typography className={classes.heading} variant="h3" align="center">
           Hiring App

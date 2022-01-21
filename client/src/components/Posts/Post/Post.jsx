@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Card, CardActions, CardContent, CardMedia, Button, Typography, Dialog, DialogActions, DialogContent } from '@material-ui/core/'
 import DeleteIcon from '@material-ui/icons/Delete'
 import BsLinkedin from '@material-ui/icons/LinkedIn'
@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { FaHireAHelper } from 'react-icons/fa'
 import moment from 'moment'
 
-import { deletePost } from '../../../actions/posts'
+import { deletePost, hireDeveloper } from '../../../actions/posts'
 import useStyles from './styles'
 
 const Post = ({ post, setCurrentId }) => {
@@ -15,7 +15,7 @@ const Post = ({ post, setCurrentId }) => {
   const classes = useStyles()
   const [open, setOpen] = useState(false)
 
-  const date = new Date('2020-01-01')
+  const date = new Date('2001-01-01')
 
   const handleClickOpen = () => {
     setOpen(true)
@@ -23,9 +23,35 @@ const Post = ({ post, setCurrentId }) => {
   const handleClose = () => {
     setOpen(false)
   }
+
+  const [postData, setPostData] = useState({
+    name: post.name,
+    email: post.email,
+    phoneNumber: post.phoneNumber,
+    location: post.location,
+    profilePicture: post.profilePicture,
+    pricePerHour: post.pricePerHour,
+    technology: post.technology,
+    description: post.description,
+    yearsOfExperience: post.yearsOfExperience,
+    nativeLanguage: post.nativeLanguage,
+    linkedInUrl: post.linkedInUrl,
+    hireStatus: false,
+    startDate: date,
+    endDate: date,
+  })
+
+  useEffect(() => {
+    if (post) setPostData(post)
+  }, [post])
+
   const handleHire = async (e) => {
     e.preventDefault()
-    handleClose()
+
+    if (post._id !== 0) {
+      dispatch(hireDeveloper(post._id, postData))
+      handleClose()
+    }
   }
 
   return (
@@ -80,11 +106,11 @@ const Post = ({ post, setCurrentId }) => {
           <div style={{ width: '19vw', borderTop: '1px solid black', margin: '5px 0px' }}></div>
           <Typography variant="body2">
             <i>Hire Status: </i>
-            {(post.hireStatus = true ? 'Not hired' : 'Hired')}
+            {(post.hireStatus = false ? 'Not hired' : 'Hired')}
           </Typography>
           <Typography variant="body2">
             <i>Start Date: </i>
-            {moment(date).format('MMMM d, YYYY')}
+            {moment(post.startDate).format('MMMM d, YYYY')}
           </Typography>
           <Typography variant="body2">
             <i>End date: </i>
@@ -118,15 +144,15 @@ const Post = ({ post, setCurrentId }) => {
                 style={{ marginTop: '15px' }}
                 type="date"
                 label="Start Date"
-                /* value={post.startDate}
-                onChange={(e) => setPostData({ ...post, startDate: e.target.value })}*/
+                // value={postData.startDate}
+                // onChange={(e) => setPostData({ ...postData, startDate: e.target.value })}
               />
               <input
                 id="end-date"
                 type="date"
                 label="End Date"
-                /* value={post.endDate}
-                onChange={(e) => setPostData({ ...post, endDate: e.target.value })}*/
+                // value={postData.endDate}
+                // onChange={(e) => setPostData({ ...postData, endDate: e.target.value })}
               />
             </DialogContent>
             <DialogActions>

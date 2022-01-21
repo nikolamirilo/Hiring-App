@@ -44,7 +44,7 @@ const Form = ({ currentId, setCurrentId }) => {
       pricePerHour: '',
       technology: '',
       description: '',
-      yearsOfExperience: 0,
+      yearsOfExperience: '',
       nativeLanguage: '',
       linkedInUrl: '',
     })
@@ -174,7 +174,7 @@ const Form = ({ currentId, setCurrentId }) => {
           value={postData.linkedInUrl}
           onChange={(e) => setPostData({ ...postData, linkedInUrl: e.target.value })}
         />
-        <div className={classes.fileInput}>
+        <div className={classes.fileInput} id="file-input">
           <FileBase type="file" multiple={false} onDone={({ base64 }) => setPostData({ ...postData, profilePicture: base64 })} />
         </div>
         <Button className={classes.buttonSubmit} variant="contained" color="primary" size="large" type="submit" fullWidth>

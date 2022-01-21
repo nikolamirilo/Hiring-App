@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE, DELETE } from '../constants/actionTypes'
+import { FETCH_ALL, CREATE, UPDATE, DELETE, HIRE } from '../constants/actionTypes'
 
 import * as api from '../api/index.js'
 
@@ -32,15 +32,15 @@ export const updatePost = (id, post) => async (dispatch) => {
   }
 }
 
-// export const hireDeveloper = (id, post) => async (dispatch) => {
-//   try {
-//     const { data } = await api.hireDeveloper(id, post)
+export const hireDeveloper = (id, post) => async (dispatch) => {
+  try {
+    const { data } = await api.hireDeveloper(id, post)
 
-//     dispatch({ type: UPDATE, payload: data })
-//   } catch (error) {
-//     console.log(error.message)
-//   }
-// }
+    dispatch({ type: HIRE, payload: data })
+  } catch (error) {
+    console.log(error.message)
+  }
+}
 
 export const deletePost = (id) => async (dispatch) => {
   try {

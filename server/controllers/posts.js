@@ -40,9 +40,6 @@ export const createPost = async (req, res) => {
     yearsOfExperience,
     nativeLanguage,
     linkedInUrl,
-    // hireStatus,
-    // startDate,
-    // endDate,
   } = req.body;
 
   const newPostMessage = new PostMessage({
@@ -57,9 +54,6 @@ export const createPost = async (req, res) => {
     yearsOfExperience,
     nativeLanguage,
     linkedInUrl,
-    // hireStatus,
-    // startDate,
-    // endDate,
   });
 
   try {
@@ -85,9 +79,6 @@ export const updatePost = async (req, res) => {
     yearsOfExperience,
     nativeLanguage,
     linkedInUrl,
-    // hireStatus,
-    // startDate,
-    // endDate,
   } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
@@ -104,9 +95,6 @@ export const updatePost = async (req, res) => {
     yearsOfExperience,
     nativeLanguage,
     linkedInUrl,
-    // hireStatus,
-    // startDate,
-    // endDate,
     _id: id,
   };
 
@@ -139,14 +127,14 @@ export const hireDeveloper = async (req, res) => {
     yearsOfExperience,
     nativeLanguage,
     linkedInUrl,
-    // hireStatus,
-    // startDate,
-    // endDate,
+    hireStatus,
+    startDate,
+    endDate,
   } = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-  const updatedPost = {
+  const hiredDeveloper = {
     name,
     email,
     phoneNumber,
@@ -158,15 +146,15 @@ export const hireDeveloper = async (req, res) => {
     yearsOfExperience,
     nativeLanguage,
     linkedInUrl,
-    // hireStatus,
-    // startDate,
-    // endDate,
+    hireStatus,
+    startDate,
+    endDate,
     _id: id,
   };
 
-  await PostMessage.findByIdAndUpdate(id, updatedPost, { new: true });
+  await PostMessage.findByIdAndUpdate(id, hiredDeveloper, { new: true });
 
-  res.json(updatedPost);
+  res.json(hiredDeveloper);
 };
 
 export default router;
