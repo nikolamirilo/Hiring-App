@@ -5,18 +5,18 @@
 3. Split terminal into two terminals
 4. In the first one run
 
-# cd client
+### `cd client`
 
-# npm install
+### `npm install`
 
-# npm start
+### `npm start`
 
 4. In the second one run:
 
-# cd server
+### `cd server`
 
-# npm install
+### `npm install`
 
-# npm start
+### `npm start`
 
 5. Go to localhost:3000 to use the web app
