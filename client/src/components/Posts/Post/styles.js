@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles({
   media: {
     height: 0,
-    paddingTop: "82%",
+    paddingTop: "78%",
     backgroundColor: "rgba(0, 0, 0, 0.5)",
     backgroundBlendMode: "darken",
   },
@@ -18,6 +18,7 @@ export default makeStyles({
     flexDirection: "column",
     justifyContent: "space-between",
     borderRadius: "15px",
+    width: "22vw",
     height: "100%",
     position: "relative",
   },
@@ -39,7 +40,8 @@ export default makeStyles({
   details: {
     display: "flex",
     justifyContent: "space-between",
-    margin: "20px",
+    margin: "5px",
+    alignItems: "justify",
   },
   title: {
     padding: "0 16px",

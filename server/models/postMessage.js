@@ -12,10 +12,13 @@ const postSchema = mongoose.Schema({
   yearsOfExperience: Number,
   nativeLanguage: String,
   linkedInUrl: String,
-  //process of hiring
-  hireStatus: Boolean, // true if hired, false if not
-  startDate: Date,
-  endDate: Date,
+  // hireStatus: Boolean,
+  // startDate: {
+  //   type: Date,
+  // },
+  // endDate: {
+  //   type: Date,
+  // },
 });
 
 var PostMessage = mongoose.model("PostMessage", postSchema);
