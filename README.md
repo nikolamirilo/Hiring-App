@@ -9,13 +9,13 @@
 
 ### `cd Hiring-App`
 
-3. Then run command:
+4. Then run command:
 
 ### `code .`
 
-4. Split terminal into two terminals
+5. Split terminal into two terminals
 
-5. In the first one run
+6. In the first one run
 
 ### `cd client`
 
@@ -23,7 +23,7 @@
 
 ### `npm start`
 
-4. In the second one run:
+7. In the second one run:
 
 ### `cd server`
 
@@ -31,4 +31,4 @@
 
 ### `npm start`
 
-5. Go to localhost:3000 to use the web app
+8. Go to localhost:3000 to use the web app
